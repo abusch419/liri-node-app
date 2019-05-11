@@ -34,7 +34,6 @@ inquirer
     else if (action === "movie-this") {
       querry = response.slice(1).join(" ") === "" ? "Mr. Nobody" : response.slice(1).join(" ")
       movieThis();
-      append(movieThis);
     }
     else if (action === "do-what-it-says") {
       fs.readFile("./random.txt", "utf8", function (error, content) {
