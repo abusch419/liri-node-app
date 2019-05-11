@@ -3,58 +3,51 @@ require("dotenv").config();
 
 
 var keys = require("./keys.js");
+var axios = require("axios");
+var inquirer = require("inquirer");
+var moment = require("moment");
+var fs = require("fs");
 
-var spotify = new Spotify(keys.spotify);
+// var spotify = new Spotify(keys.spotify);
 
 
 // allow an input via node and do something depending on that input
 // we can use inquire for this
-var inquirer = require("inquirer");
+
+
 
 
 inquirer
-    .prompt([
-        {
-            type: "input",
-            message: "What is your username",
-            name: "username"
-        },
-        {
-            type: "password",
-            message: "Please create a password",
-            name: "password"
-        },
-        {
-            type: "list",
-            message: "Please choose which of these type of cloud you prefer",
-            choices: ["Cirrus", "Stratus", "Nimbus"],
-            name: "favCloud"
-        },
-        {
-            type: "checkbox",
-            message: "Please choose the best number",
-            choices: [5, 2, 4],
-            name: "favNum"
-        },
-        {
-            type: "confirm",
-            message: "Are you sure these are your final answers",
-            name: "confirm",
-            default: true
-        }
-    ]).then(function (inquirerResponse) {
-        // If the inquirerResponse confirms, we displays the inquirerResponse's username and pokemon from the answers.
-        if (inquirerResponse.confirm) {
-            if (inquirerResponse.password === predefinedPassword) {
-                console.log("Please try a better password")
-            }
-            else if (inquirerResponse.password !== predefinedPassword) {
-                console.log(inquirerResponse)
-                console.log("\nWelcome " + inquirerResponse.username);
-            }
+  .prompt([
+    {
+      type: "input",
+      message: "Hello! Please input 'concert-this' and then an artist or band name!",
+      name: "input"
+    }
+  ]).then(function (inquirerResponse) {
+    const response = inquirerResponse.input.split(" ")
+    const action = response[0].toString();
+    const querry = response.slice(1).join(" ")
+    if (action === "concert-this") {
+      const queryUrl =
+    "https://rest.bandsintown.com/artists/" +
+    querry +
+    "/events?app_id=db4cdbfd2bad1b7a3e4cdc51a42f15b9";
+    axios.get(queryUrl)
+    .then(function (response) {
+      console.log(`Showing next event for ${querry}`)
+      console.log(response.data[0].venue.name)
+      console.log(response.data[0].venue.city)
+      console.log(response.data[0].venue.region)
+      console.log(moment(response.data[0].datetime).format('YYYY MM DD'));
+    })
+    .catch(function (error) {
+      console.log(error);
+    }); 
+    }
+  });
 
-        }
-        else {
-            console.log("\nThat's okay " + inquirerResponse.username + ", come again when you are more sure.\n");
-        }
-    });
+
+
+  
+  
