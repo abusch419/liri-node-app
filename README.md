@@ -8,7 +8,8 @@
 4. do-what-it-says 
 
 You will recieve info on whatever artist, song, or movie you searched. Do-what-it-says will randomly generate a command and input search value. 
-I hope you enjoy my Language Interpretation and Recognition Interface!!!
+This app is a Language Interpretation and Recognition Interface built using Node-Spotify-API, Axios, Moment, DotEnv, and Inquirer NPMs. I am also using the Bands In Town and OMDB Apis.
+Hope you enjoy!
 
 link to video walkthrough:
 https://www.youtube.com/watch?v=XX3_4IANdlc&feature=youtu.be
