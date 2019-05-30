@@ -15,13 +15,14 @@ inquirer
   .prompt([
     {
       type: "input",
-      message: "Hello! Please choose from one of the four options. Option 1: Type concert-this and the artist you would like to soee upcoming shows for. Option 2: type movie-this and a movie you would like info on. Option 3: type spotify-this-song and a song you would like info on. Option 4: Type do-what-it-says and see the magic!",
+      message: "Hello! Please choose from one of the four options. Option 1: Type concert-this and the artist you would like to see upcoming shows for. Option 2: Type movie-this and a movie you would like info on. Option 3: Type spotify-this-song and a song you would like info on. Option 4: Type do-what-it-says and see something random!",
       name: "input"
     }
   ]).then(function (inquirerResponse) {
     response = inquirerResponse.input.split(" ")
     let action = response[0].toString();
     if (action === "concert-this") {
+      // debugger;
       querry = response.slice(1).join(" ")
       concertThis();
 
