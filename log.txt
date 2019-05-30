@@ -34,4 +34,8 @@ Movie Title: Mr. Nobody, IMDB Rating: 7.8, Language: English, Mohawk, Rotten Tom
       Country Movie Was Produced In: USA, Canada 
       Language: English
       Plot: A young boy and a talented stray dog with an amazing basketball playing ability become instant friends. Rebounding from his father's accidental death, 12-year-old Josh Framm moves with his ...
-      Cast: Michael Jeter, Kevin Zegers, Wendy Makkena, Bill Cobbs, 
+      Cast: Michael Jeter, Kevin Zegers, Wendy Makkena, Bill Cobbs, Showing next event for partials
+      Venue: Aisle 5
+      City: Atlanta
+      State: GA
+      Date: 2019/08/01, 
